@@ -1,0 +1,193 @@
+<script>
+var values = [];
+function musicCode(){
+var valueSum=1;
+var musicCoded=["1",];
+var findCode=" ";
+var recStri = [];
+findCode = prompt("Name the notes in the music if you are a Boomer");
+
+var stuff = findCode.split("");
+for(var i = 0; i<stuff.length; i++){
+if(musicCoded[i]==2){
+if(rest === true){
+musicCoded[i]="(e)";
+}else{
+musicCoded[i]="e";
+}
+}
+if(musicCoded[i]==3){
+if(rest === true){
+musicCoded[i]="(+)";
+}else{
+musicCoded[i]="+";
+}
+}
+if(musicCoded[i]==4){
+if(rest === true){
+musicCoded[i]="(a)";
+}else{
+musicCoded[i]="a";
+}
+}
+if(musicCoded[i]==5){
+if(rest === true){
+musicCoded[i]="(2)";
+}else{
+musicCoded[i]="2";
+}
+}
+if(musicCoded[i]==6){
+if(rest === true){
+musicCoded[i]="(e)";
+}else{
+musicCoded[i]="e";
+}
+}
+if(musicCoded[i]==7){
+if(rest === true){
+musicCoded[i]="(+)";
+}else{
+musicCoded[i]="+";
+}
+}
+if(musicCoded[i]==8){
+if(rest === true){
+musicCoded[i]="(a)";
+}else{
+musicCoded[i]="a";
+}
+}
+if(musicCoded[i]==9){
+if(rest === true){
+musicCoded[i]="(3)";
+}else{
+musicCoded[i]="3";
+}
+}
+if(musicCoded[i]==10){
+if(rest === true){
+musicCoded[i]="(e)";
+}else{
+musicCoded[i]="e";
+}
+}
+if(musicCoded[i]==11){
+if(rest === true){
+musicCoded[i]="(+)";
+}else{
+musicCoded[i]="+";
+}
+}
+if(musicCoded[i]==12){
+if(rest === true){
+musicCoded[i]="(a)";
+}else{
+musicCoded[i]="a";
+}
+}
+if(musicCoded[i]==13){
+if(rest === true){
+musicCoded[i]="(4)";
+}else{
+musicCoded[i]="4";
+}
+}
+if(musicCoded[i]==14){
+if(rest === true){
+musicCoded[i]="(e)";
+}else{
+musicCoded[i]="e";
+}
+}
+if(musicCoded[i]==15){
+if(rest === true){
+musicCoded[i]="(+)";
+}else{
+musicCoded[i]="+";
+}
+}
+if(musicCoded[i]==16){
+if(rest === true){
+musicCoded[i]="(a)";
+}else{
+musicCoded[i]="a";
+}
+}
+if(musicCoded[i]>16){
+musicCoded[i]=musicCoded[i]-16;
+valueSum=1;
+}
+if(musicCoded[i]==1||musicCoded[i]==0){
+musicCoded[i]="1";
+}
+if(stuff[i]=="h"){
+values[i] = 8;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+}
+if(stuff[i] =="q"){
+values[i] = 4;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+}
+if(stuff[i]=="e"){
+values[i]=2;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+}
+if(stuff[i] == "s"){
+values[i]=1;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+}
+if(stuff[i]=="h."){
+values[i]=12;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+}
+if(stuff[i]=="q."){
+values[i]=6;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+}
+if(stuff[i]=="q.r"){
+values[i]=6;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+var rest = true;
+}
+if(stuff[i]=="e."){
+values[i]=3;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+}
+if(stuff[i]=="e.r"){
+values[i]=3;
+var rest = true;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+}
+recStri[i]=musicCoded[i];
+}
+var ericGen = recStri.join(" ");
+document.getElementById("Joe").innerHTML=ericGen;
+}
+
+</script>
+<b><h1><p> This is your music code</p>
+<h4><p>Your Music should be counted as: <span id="Joe"></span></p>
+
+<input type="button" value="Enter Music Code" onClick="musicCode()" align="right">
+<h3><p> Enter these codes to type in notes</p>
+<h3><ul>
+<li>h for half note</li>
+<li>q for quarter note</li>
+<li>e for eight note</li>
+<li>s for sixteenth note</li>
+<li>h. for dotted half note</li>
+<li> q. for dotted quarter note</li>
+<li>e. for dotted eight note</li>
+<li>Put an r behind each letter to signify a rest</li>
+</ul>
+<p>Please Put Spaces Between Each Note</p>
