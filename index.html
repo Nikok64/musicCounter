@@ -1,15 +1,13 @@
 <script>
-
-  alert("No eric you can't buy a rank");
 var values = [];
 function musicCode(){
 var valueSum=1;
 var musicCoded=["1",];
 var findCode=" ";
 var recStri = [];
-findCode = prompt("Name the notes in the music if you are a Boomer");
+findCode = prompt("Name the notes in the music");
 
-var stuff = findCode.split("");
+var stuff = findCode.split(" ");
 for(var i = 0; i<stuff.length; i++){
 if(musicCoded[i]==2){
 if(rest === true){
@@ -170,6 +168,18 @@ var rest = true;
 musicCoded[i+1] = values[i]+valueSum;
 valueSum=valueSum+values[i];
 }
+if(stuff[i]=="hr"){
+values[i]=8;
+var rest = true;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+}
+if(stuff[i]=="qr"){
+values[i]=4;
+var rest = true;
+musicCoded[i+1] = values[i]+valueSum;
+valueSum=valueSum+values[i];
+}
 recStri[i]=musicCoded[i];
 }
 var ericGen = recStri.join(" ");
@@ -177,22 +187,11 @@ document.getElementById("Joe").innerHTML=ericGen;
 }
 
 </script>
-<head>
-<style>
-  body {
-    transition: 200ms ease;
-  }
-</style>
-
-</head>
-
-<body>
 <b><h1><p> This is your music code</p>
 <h4><p>Your Music should be counted as: <span id="Joe"></span></p>
 
-
 <input type="button" value="Enter Music Code" onClick="musicCode()" align="right">
-<h3><p> Enter these codes to type in notes with not spaces in between just like this: qhqe</p>
+<h3><p> Enter these codes to type in notes</p>
 <h3><ul>
 <li>h for half note</li>
 <li>q for quarter note</li>
@@ -204,4 +203,3 @@ document.getElementById("Joe").innerHTML=ericGen;
 <li>Put an r behind each letter to signify a rest</li>
 </ul>
 <p>Please Put Spaces Between Each Note</p>
-</body>
